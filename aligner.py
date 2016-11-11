@@ -1568,6 +1568,6 @@ def align(sentence1, sentence2):
     myWordAlignmentTokens = [[str(sentence1Lemmatized[item[0]-1][2]), str(sentence2Lemmatized[item[1]-1][2])] for item in myWordAlignments]
 
 
-    return [myWordAlignments, myWordAlignmentTokens]
+    return myWordAlignmentTokens
 ##############################################################################################################################
 
