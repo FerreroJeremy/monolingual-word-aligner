@@ -4,16 +4,21 @@ This is a word aligner for English: given two English sentences, it aligns relat
 
 ## Contributions
 
-Initially, this is a fork of [ma-sultan/monolingual-word-aligner](https://github.com/ma-sultan/monolingual-word-aligner), a method of word alignment presented in [(Sultan et al., 2015)](http://www.aclweb.org/anthology/S15-2027) that has been very successful in [SemEval STS (Semantic Textual Similarity) Task](https://aclweb.org/anthology/S/S16/S16-1081.pdf) in recent years. Given two sentence we want to compare, this method finds and aligns the words that have similar meaning and similar role in these sentences. 
+Initially, this is a fork of [ma-sultan/monolingual-word-aligner](https://github.com/ma-sultan/monolingual-word-aligner), the aligner presented in [(Sultan et al., 2015)](http://www.aclweb.org/anthology/S15-2027) that has been very successful in [SemEval STS (Semantic Textual Similarity) Task](https://aclweb.org/anthology/S/S16/S16-1081.pdf) in recent years.
 
-But in 2016 the team UWB [(Brychcin and Svoboda, 2016)](https://www.aclweb.org/anthology/S/S16/S16-1089.pdf) improves the aligner, but without making public its source code. The weighing by IDF consideration of alignments improves the results significantly. This repository is an implementation of this improvement.
+But in 2016 the team UWB [(Brychcin and Svoboda, 2016)](https://www.aclweb.org/anthology/S/S16/S16-1089.pdf) improves the aligner. They introduce the IDF weight in the initial distance Jaccard formula but without distributing the new source code. This repository is an implementation of this improvement.
 
-The results of the different implementations on the SemEval evaluation data below.
+In the <i>semeval_data/</i> directory, you can find all the necessary data to repeat the tests yourself. There are two sets of data, called <i>news</i> and <i>multisource</i>. You can verify the correlation between the output of the aligner and the gold standard of the evaluation with the correlation perl script as follow :
+
+```
+./correlation.pl  STS.gs.XXX.txt  your_output.txt
+```
+
+The results of the different implementations on the SemEval 2016 STS evaluation data below.
 
 Method | News | Multi-Src | Mean
 --- | --- | ---| ---
-2015 winner - the initial implementation of ma-sultan without IDF consideration | 0.89604 | 0.71850 | 0.80831
-2016 winner - the implementation of with IDF consideration | 0.91237 | 0.80818 | 0.86089
+The initial implementation of <i>ma-sultan</i> without IDF consideration | 0.89604 | 0.71850 | 0.80831
 This implementation with IDF consideration | 0.90601 | 0.81447 | 0.86078
 
 ## Requirements
