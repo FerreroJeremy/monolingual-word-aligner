@@ -9,8 +9,11 @@ import math
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-input1 = open('input1.txt', 'r')
-input2 = open('input2.txt', 'r')
+input1 = open('semeval_data/multi.sentences.en.txt', 'r')
+input2 = open('semeval_data/multi.sentences.es-en.txt', 'r')
+
+# input1 = open('semeval_data/news.sentences.en.txt', 'r')
+# input2 = open('semeval_data/news.sentences.es-en.txt', 'r')
 
 sentences1 = input1.readlines()
 print 'Input file 1 loaded.'
