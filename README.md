@@ -10,18 +10,18 @@ But in 2016 the team UWB [(Brychcin and Svoboda, 2016)](https://github.com/Ferre
 
 In the <i>docs/</i> directory, you can find the papers cited above.
 
-In the <i>semeval_data/</i> directory, you can find all the necessary data to repeat the tests by yourself. There are two sets of data, called <i>news</i> and <i>multisource</i>. You can verify the correlation between the output of the aligner and the related gold standard file with the correlation Perl script as follow:
-
-```
-./correlation.pl  STS.gs.XXX.txt  your_output.txt
-```
-
 The results of the different implementations on the SemEval 2016 STS evaluation data below.
 
 Method | News | Multi-Src | Mean
 --- | --- | ---| ---
 The initial implementation of <i>[ma-sultan](https://github.com/ma-sultan/monolingual-word-aligner)</i> | 0.89604 | 0.71850 | 0.80831
 The implementation with IDF weighting | 0.90601 | 0.81447 | 0.86078
+
+In the <i>semeval_data/</i> directory, you can find all the necessary data to repeat the tests by yourself. There are two sets of data, called <i>news</i> and <i>multisource</i>. You can verify the correlation between the output of the aligner and the related gold standard file with the correlation Perl script as follow:
+
+```
+./correlation.pl  STS.gs.XXX.txt  your_output.txt
+```
 
 ## Requirements
 
@@ -31,14 +31,7 @@ The implementation with IDF weighting | 0.90601 | 0.81447 | 0.86078
 ## Installation and Usage
 
 1) Install the above tools. <br/>
-2) Change line 107 of <i>corenlp.py</i>, from :
-`
-rel, left, right = map(lambda x: remove_id(x), split_entry)
-`
-to 
-`
-rel, left, right = split_entry
-`
+2) Change line 107 of <i>corenlp.py</i>, from `rel, left, right = map(lambda x: remove_id(x), split_entry)` to `rel, left, right = split_entry`
 
 3) Install the NLTK stopword corpus and <i>jsonrpclib</i>. <br/>
 
