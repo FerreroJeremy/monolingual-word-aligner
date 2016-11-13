@@ -4,11 +4,13 @@ This is a word aligner for English: given two English sentences, it aligns relat
 
 ## Contributions
 
-Initially, this is a fork of [ma-sultan/monolingual-word-aligner](https://github.com/ma-sultan/monolingual-word-aligner), the aligner presented in [(Sultan et al., 2015)](http://www.aclweb.org/anthology/S15-2027) that has been very successful in [SemEval STS (Semantic Textual Similarity) Task](https://aclweb.org/anthology/S/S16/S16-1081.pdf) in recent years.
+Initially, this is a fork of [ma-sultan/monolingual-word-aligner](https://github.com/ma-sultan/monolingual-word-aligner), the aligner presented in [(Sultan et al., 2015)](https://github.com/FerreroJeremy/monolingual-word-aligner/blob/master/docs/DLS%40CU-%20Sentence%20Similarity%20from%20Word%20Alignment%20and%20Semantic%20Vector%20Composition.pdf) that has been very successful in [SemEval STS (Semantic Textual Similarity) Task](https://github.com/FerreroJeremy/monolingual-word-aligner/blob/master/docs/SemEval-2016%20Task%201-%20Semantic%20Textual%20Similarity%2C%20Monolingual%20and%20Cross-Lingual%20Evaluation.pdf) in recent years.
 
-But in 2016 the team UWB [(Brychcin and Svoboda, 2016)](https://www.aclweb.org/anthology/S/S16/S16-1089.pdf) improves the aligner. They introduce the IDF weight in the initial distance Jaccard formula but without distributing the new source code. This repository is an implementation of this improvement.
+But in 2016 the team UWB [(Brychcin and Svoboda, 2016)](https://github.com/FerreroJeremy/monolingual-word-aligner/blob/master/docs/UWB%20at%20SemEval-2016%20Task%201-%20Semantic%20Textual%20Similarity%20using%20Lexical%2C%20Syntactic%2C%20and%20Semantic%20Information.pdf) improves the aligner. They introduce the consideration of IDF weighting in the Jaccard distance formula but without distributing the new source code. This repository is an implementation of this improvement.
 
-In the <i>semeval_data/</i> directory, you can find all the necessary data to repeat the tests yourself. There are two sets of data, called <i>news</i> and <i>multisource</i>. You can verify the correlation between the output of the aligner and the gold standard of the evaluation with the correlation perl script as follow :
+In the <i>docs/</i> directory, you can find the papers cited above.
+
+In the <i>semeval_data/</i> directory, you can find all the necessary data to repeat the tests by yourself. There are two sets of data, called <i>news</i> and <i>multisource</i>. You can verify the correlation between the output of the aligner and the related gold standard file with the correlation Perl script as follow:
 
 ```
 ./correlation.pl  STS.gs.XXX.txt  your_output.txt
@@ -18,28 +20,28 @@ The results of the different implementations on the SemEval 2016 STS evaluation 
 
 Method | News | Multi-Src | Mean
 --- | --- | ---| ---
-The initial implementation of <i>ma-sultan</i> without IDF consideration | 0.89604 | 0.71850 | 0.80831
-This implementation with IDF consideration | 0.90601 | 0.81447 | 0.86078
+The initial implementation of <i>ma-sultan</i> | 0.89604 | 0.71850 | 0.80831
+The implementation with IDF weighting | 0.90601 | 0.81447 | 0.86078
 
 ## Requirements
 
-1. Python [NLTK](http://www.nltk.org/install.html)
-2. The [Python wrapper for Stanford CoreNLP](https://github.com/dasmith/stanford-corenlp-python)  
+1) Python [NLTK](http://www.nltk.org/install.html) <br/>
+2) The [Python wrapper for Stanford CoreNLP](https://github.com/dasmith/stanford-corenlp-python)  
 
 ## Installation and Usage
 
-1. Install the above tools.
-2. Change line 100 of corenlp.py, from :
-```
+1) Install the above tools. <br/>
+2) Change line 100 of corenlp.py, from :
+`
 rel, left, right = map(lambda x: remove_id(x), split_entry)
-```
+`
 to 
-```
+`
 rel, left, right = split_entry
-```
+`
 
-3. Install the NLTK stopword corpus and jsonrpclib
-4. Download the aligner
+3) Install the NLTK stopword corpus and jsonrpclib. <br/>
+4) Download the aligner.
 
 ```
 python -m nltk.downloader stopwords
@@ -47,7 +49,19 @@ sudo pip install jsonrpclib
 git clone https://github.com/ma-sultan/monolingual-word-aligner.git
 ```
 
-5. Run the corenlp.py script to launch the server:  
+5) Run the corenlp.py script to launch the server:  
+```
+python stanford-corenlp-python/corenlp.py
+```
+
+6) Wait the loading of the models, once completed you should see in the terminal:
+
+```
+Loading Models: 5/5                                                                                                                       
+INFO:__main__:Serving on http://127.0.0.1:8080
+```
+
+7) In another terminal, run the testAlign.py script to launch the comparison:  
 ```
 python testAlign.py
 ```
