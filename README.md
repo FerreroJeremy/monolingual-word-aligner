@@ -58,7 +58,7 @@ Loading Models: 5/5
 INFO:__main__:Serving on http://127.0.0.1:8080
 ```
 
-7) In another terminal, run the <i>testAlign.py</i> script to launch the comparison of the specified files in the source code:  
+7) In another terminal, run the <i>testAlign.py</i> script to launch the comparison between the specified files in the source code:  
 ```
 python testAlign.py
 ```
