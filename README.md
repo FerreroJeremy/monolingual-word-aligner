@@ -6,11 +6,11 @@ This is a word aligner for English: given two English sentences, it aligns relat
 
 Initially, this is a fork of <i>[ma-sultan/monolingual-word-aligner](https://github.com/ma-sultan/monolingual-word-aligner)</i>, the aligner presented in [(Sultan et al., 2015)](https://github.com/FerreroJeremy/monolingual-word-aligner/blob/master/docs/DLS%40CU-%20Sentence%20Similarity%20from%20Word%20Alignment%20and%20Semantic%20Vector%20Composition.pdf) that has been very successful in [SemEval STS (Semantic Textual Similarity) Task](https://github.com/FerreroJeremy/monolingual-word-aligner/blob/master/docs/SemEval-2016%20Task%201-%20Semantic%20Textual%20Similarity%2C%20Monolingual%20and%20Cross-Lingual%20Evaluation.pdf) in recent years.
 
-But in 2016 the team UWB [(Brychcin and Svoboda, 2016)](https://github.com/FerreroJeremy/monolingual-word-aligner/blob/master/docs/UWB%20at%20SemEval-2016%20Task%201-%20Semantic%20Textual%20Similarity%20using%20Lexical%2C%20Syntactic%2C%20and%20Semantic%20Information.pdf) improves the aligner. They introduce the consideration of IDF weighting in the Jaccard distance formula but without distributing the new source code. This repository is an implementation of this improvement.
+But in 2016 the team UWB [(Brychcin and Svoboda, 2016)](https://github.com/FerreroJeremy/monolingual-word-aligner/blob/master/docs/UWB%20at%20SemEval-2016%20Task%201-%20Semantic%20Textual%20Similarity%20using%20Lexical%2C%20Syntactic%2C%20and%20Semantic%20Information.pdf) improves the aligner. They introduce the consideration of IDF weighting in the Jaccard distance formula but without distributing the new source code. And that's why I offer to share, in this repository, an implementation of this improvement.
 
 In the <i>docs/</i> directory, you can find the papers cited above.
 
-The results of the different implementations on the SemEval 2016 STS evaluation data below.
+The results of the different implementations on the SemEval 2016 STS evaluation data are reported below.
 
 Method | News | Multi-Src | Mean
 --- | --- | ---| ---
