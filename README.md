@@ -20,7 +20,7 @@ The implementation with IDF weighting | 0.90601 | 0.81447 | 0.86078
 In the `semeval_data/` directory, you can find all the necessary data to repeat the tests by yourself. There are two sets of data, called `news` and `multisource`. You can verify the correlation between the output of the aligner and the related gold standard file with the correlation Perl script as follow:
 
 ```
-perl correlation.pl  STS.gs.XXX.txt  your_output_for_XXX.txt
+perl correlation.pl STS.gs.XXX.txt your_output_for_XXX.txt
 ```
 
 ## Requirements
