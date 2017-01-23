@@ -62,3 +62,4 @@ INFO:__main__:Serving on http://127.0.0.1:8080
 ```
 python testAlign.py
 ```
+comment or uncomment the lines 12 and 13, or 15 and 16 in the `testAlign.py` file to align the multisource sentences or the news sentences, respectively.
