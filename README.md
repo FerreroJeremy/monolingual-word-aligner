@@ -30,6 +30,7 @@ The implementation with IDF weighting | 0.76006 | 0.12447 | 0.44226
 In the `semeval_data/` directory, you can find all the necessary data to repeat the tests by yourself. 
 For the 2016 evaluation, there are two sets of data, called `news` and `multisource`.
 For the 2017 evaluation, there are two sets of data, called `track4a` and `track4b`.
+The gold standard (expected scores) for the four sets are also in the directory.
 You can verify the correlation between the output of the aligner and the related gold standard file with the correlation Perl script as follow:
 
 ```
@@ -71,8 +72,7 @@ Loading Models: 5/5
 INFO:__main__:Serving on http://127.0.0.1:8080
 ```
 
-7) In another terminal, run the `testAlign.py` script to launch the comparison between the specified files in the source code:  
+7) In another terminal, run the `testAlign_idf.py` script to launch the comparison between the specified files in the source code:  
 ```
-python testAlign.py
+python testAlign_idf.py
 ```
-comment or uncomment the lines 12 and 13, or 15 and 16 in the `testAlign.py` file to align the multisource sentences or the news sentences, respectively.
